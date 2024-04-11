@@ -191,11 +191,15 @@
     </footer>
     <script>
       const params = new URLSearchParams(window.location.search)
-      const search = params.get('search')
-      const URL = 'https://api.pexels.com/v1/'
+      const URL = 'https://api.pexels.com/v1/search?query=cars'
+      import { createClient } from 'pexels'
+
+      const client = createClient(
+        'HlF6XsMl195kf4nTo8YCO3KhmksphEVZO6RF49xKbqvlj4ZQqL10eCD8'
+      )
 
       window.addEventListener('DOMContentLoaded', () => {
-        fetch(URL + search)
+        fetch(URL)
           .then((resp) => {
             if (resp.ok) {
               return resp.json()
